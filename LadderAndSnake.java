@@ -1,4 +1,4 @@
-public class LadderAndSnakeRetry {
+public class LadderAndSnake {
     private int players;
     private final static int [][] board = {{1,38},{4,14},{9,31},{16,6},{21,42}
     ,{28,84},{36,44},{48,30},{51,67},{62,19}
