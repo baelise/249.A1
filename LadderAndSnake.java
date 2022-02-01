@@ -1,9 +1,8 @@
 public class LadderAndSnake {
     private int players;
     private final static int [][] board = {{1,38},{4,14},{9,31},{16,6},{21,42}
-    ,{28,84},{36,44},{48,30},{51,67},{62,19}
-    ,{64,60},{71,91},{93,68},{95,24},
-    {97,76},{98,78}}; //Removing {80, 100} and hardcoding it into loop in play()
+    ,{28,84},{36,44},{48,30},{51,67},{62,19},{64,60},{71,91},{93,68},{95,24},{97,76},{98,78}};
+     //Removed {80, 100} and hardcoding it into loop in play()
     
     public LadderAndSnakeRetry() {}
     public LadderAndSnakeRetry(LadderAndSnakeRetry lasr) {
