@@ -7,7 +7,7 @@ public class PlayLadderAndSnake {
         	System.out.println("Please Enter Numbers of Players (between 2and 4): ");
             int userIn = scan.nextInt();
             if (userIn >= 2 && userIn <=4){
-                LadderAndSnakeRetry g1 = new LadderAndSnakeRetry(userIn);
+                LadderAndSnake g1 = new LadderAndSnake(userIn);
             	g1.play();
                 break;
             }
