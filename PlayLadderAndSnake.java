@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class PlayLadderAndSnakeRetry {
+public class PlayLadderAndSnake {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int players;
@@ -18,5 +18,6 @@ public class PlayLadderAndSnakeRetry {
             }
         }
         System.out.println("Game is terminated");
+        scan.close();
     }
 }
