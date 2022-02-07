@@ -32,42 +32,47 @@ public class LadderAndSnake {
     // players in order. A String array is returned with the custom names in, now, the
     // correct order
     public String[] playerOrder(String p1, String p2, String p3, String p4) {
-    	String[] playerString = {p1, p2, p3, p4};
-    	int[] playerRolls = {0, 0, 0, 0};
-    	playerRolls = new int[this.getPlayers()];
-    	for(int i = 0; i<playerRolls.length; i++) {
-    		playerRolls[i] = flipDice();
-    		System.out.println(playerString[i] + " rolled " + playerRolls[i]);
-    	}
-    	for(int j = 0; j<playerRolls.length; j++) {
-    		for(int k = 0; k<playerRolls.length; k++) {
-		    	if(j!=k) {
-    				if(playerRolls[j]==playerRolls[k]) {
-    					System.out.println("\n"+ playerString[j] + " and " + playerString[k] + " both rolled " + playerRolls[j] + "\nReroll!");
-    					playerRolls[j] = flipDice();
-    					playerRolls[k] = flipDice();
-    					System.out.println("Reroll from " + playerString[j] + ": " + playerRolls[j]);
-    					System.out.println("Reroll from " + playerString[k] + ": " + playerRolls[k]);
-    			    	j = 0;
-    					k = 0;
-    				}
-    			}
-    		}
-    	}
-    	System.out.println("\n");
-    	for(int l = 0; l<playerRolls.length-1; l++) {
-    		for(int m = l+1; m<playerRolls.length; m++) {
-    			if(playerRolls[m]>playerRolls[l]) {
-    				int tempRoll = playerRolls[m];
-    				playerRolls[m] = playerRolls[l];
-    				playerRolls[l] = tempRoll;
-    				String tempString = playerString[m];
-    				playerString[m] = playerString[l];
-    				playerString[l] = tempString;
-    			}
-    		}
-    	}
-    	return playerString;
+        String[] playerString = {p1, p2, p3, p4};
+        int i = 0;
+        int[] playerRolls = {0, 0, 0, 0};
+        while(i < getPlayers()){
+            int flip = flipDice();
+            System.out.println(playerString[i] + " rolled a " + flip);
+            playerRolls[i] = flip; i++;
+        }
+        for (int j = 0; j < getPlayers(); j++)
+        {
+            for (int k = j+1; k < getPlayers(); k++)
+            {
+                while (playerRolls[j] == playerRolls[k])
+                {
+                    System.out.println(playerString[j] + " and " + playerString[k] + " both rolled " + playerRolls[j]);
+                    int roll = flipDice();
+                    System.out.println(playerString[j] + " has rolled " + roll);
+                    playerRolls[j] = roll;
+                    int roll2 = flipDice();
+                    System.out.println(playerString[k] + " has rolled " + roll2);
+                    playerRolls[k] = roll2;
+                }
+            }
+        }
+        for (int l = 0; l < getPlayers(); l++)
+        {
+            for (int m = 1+l; m < getPlayers(); m++)
+            {
+                if(playerRolls[m] > playerRolls[l]){
+                    int temp = playerRolls[l];
+                    String tomp = playerString[l];
+
+                    playerRolls[l] = playerRolls[m];
+                    playerString[l] = playerString[m];
+
+                    playerRolls[m] = temp;
+                    playerString[m] = tomp;
+                }
+            }
+        }
+        return playerString;
     }
     
     // Flip dice method: when called, return a random number between 1 and 6
@@ -94,7 +99,7 @@ public class LadderAndSnake {
                 System.out.println("\nNEW PLAYER POSITIONS:");
                 for(int x = 0; x < getPlayers(); x++)
                 {
-                	System.out.println(order[x] + " is at sqaure " + positions[x] + "	");
+                	System.out.println(order[x] + " is at square " + positions[x] + "	");
                 }
                 System.out.println("\nRolling.......... ");
                 System.out.println(order[i] + " rolls " + nextRoll);
