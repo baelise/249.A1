@@ -34,6 +34,39 @@ public class LadderAndSnake {
     public String[] playerOrder(String p1, String p2, String p3, String p4) {
     	String[] playerString = {p1, p2, p3, p4};
     	int[] playerRolls = {0, 0, 0, 0};
+    	playerRolls = new int[this.getPlayers()];
+    	for(int i = 0; i<playerRolls.length; i++) {
+    		playerRolls[i] = flipDice();
+    		System.out.println(playerString[i] + " rolled " + playerRolls[i]);
+    	}
+    	for(int j = 0; j<playerRolls.length; j++) {
+    		for(int k = 0; k<playerRolls.length; k++) {
+		    	if(j!=k) {
+    				if(playerRolls[j]==playerRolls[k]) {
+    					System.out.println("\n"+ playerString[j] + " and " + playerString[k] + " both rolled " + playerRolls[j] + "\nReroll!");
+    					playerRolls[j] = flipDice();
+    					playerRolls[k] = flipDice();
+    					System.out.println("Reroll from " + playerString[j] + ": " + playerRolls[j]);
+    					System.out.println("Reroll from " + playerString[k] + ": " + playerRolls[k]);
+    			    	j = 0;
+    					k = 0;
+    				}
+    			}
+    		}
+    	}
+    	System.out.println("\n");
+    	for(int l = 0; l<playerRolls.length-1; l++) {
+    		for(int m = l+1; m<playerRolls.length; m++) {
+    			if(playerRolls[m]>playerRolls[l]) {
+    				int tempRoll = playerRolls[m];
+    				playerRolls[m] = playerRolls[l];
+    				playerRolls[l] = tempRoll;
+    				String tempString = playerString[m];
+    				playerString[m] = playerString[l];
+    				playerString[l] = tempString;
+    			}
+    		}
+    	}
     	return playerString;
     }
     
