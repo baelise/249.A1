@@ -73,7 +73,7 @@ public class PlayLadderAndSnake {
             }
         }
         // Goodbye message
-        System.out.println("\nGame is OVER\nThanks for playing Snake and Ladders!!");
+        System.out.println("\n           --- Game is now OVER ---\n--- Thanks for playing Snake and Ladders!! ---");
         scan.close();
     }
 }
