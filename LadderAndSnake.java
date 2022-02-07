@@ -46,7 +46,7 @@ public class LadderAndSnake {
             {
                 while (playerRolls[j] == playerRolls[k])
                 {
-                    System.out.println(playerString[j] + " and " + playerString[k] + " both rolled " + playerRolls[j]);
+                    System.out.println("\n" + playerString[j] + " and " + playerString[k] + " both rolled " + playerRolls[j] + "\nRe-roll!!");
                     int roll = flipDice();
                     System.out.println(playerString[j] + " has rolled " + roll);
                     playerRolls[j] = roll;
