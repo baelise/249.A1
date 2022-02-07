@@ -40,6 +40,7 @@ public class LadderAndSnake {
             System.out.println(playerString[i] + " rolled a " + flip);
             playerRolls[i] = flip; i++;
         }
+	// If two players roll the same number, program rerolls for those two players
         for (int j = 0; j < getPlayers(); j++)
         {
             for (int k = j+1; k < getPlayers(); k++)
@@ -56,6 +57,7 @@ public class LadderAndSnake {
                 }
             }
         }
+	// Bubble sort String array and int array
         for (int l = 0; l < getPlayers(); l++)
         {
             for (int m = 1+l; m < getPlayers(); m++)
