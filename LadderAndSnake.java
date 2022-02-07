@@ -17,9 +17,9 @@ public class LadderAndSnake {
     public void setPlayers(int players) {
     	this.players = players;
     }
-    public int[] playerOrder() {
-    	int[] test = {1,2,3,4};
-    	return test;
+    public String[] playerOrder(String p1, String p2, String p3, String p4) {
+    	String[] playerString = {p1, p2, p3, p4};
+    	return playerString;
     }
     public int flipDice(){
     	int roll = (int)(Math.random()*6+1);
